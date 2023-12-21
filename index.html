@@ -54,8 +54,7 @@
       ## Today
       
       - Assessment, Deadline
-      - HTML Forms
-      - CSS Animation
+      - CSS Animation, Variables
       - Flexbox & Grid
       - Responsive Design, Media Queries
       - Web Standards, Accessibility
@@ -99,7 +98,7 @@
 
     Do *NOT* copy code online without <span class="gray"> reference</span>
 
-    Do *NOT* use full code templates
+    Do *NOT* use full code templates, **FRAMEWORKS**
 
     </textarea>
   </section>
@@ -108,10 +107,695 @@
 
 
 
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## CSS TRANSITION 1
+
+    - `transition` goes into the **source element's declaration**
+    - It does **nothing** but **marks the element** for transition
+    - the styles to **transition _<u>to</u>_** go into the element's   
+    `:hover`, `:checked`, `:focus`, (etc.) state
+    - The **transition to these styles** is only triggered on  
+    `:hover`, `:checked`, `:focus`, (etc.)
+
+    ---
+
+    ## CSS TRANSITION 2
+
+    - A transition can be **delayed** e.g.  
+    `transition-delay: 2s;`
+    - A `transition` style can be **triggered by JavaScript**…
+    - …say by **adding a class** with a `transition`
+
+    > **CSS `transition` !== CSS `@keyframes` animation**  
+    they work differently
+
+    ---
+
+    ## CSS TRANSITION 3
+
+    ```css
+    .mymenu {
+      /* basic style rules here */
+      background: #88c;
+      color: #ccc;
+      border-bottom: 4px solid #ccc;
+      transition: all 1s ease-in-out;
+    }
+    .mymenu:hover {
+      background: #ccf;
+      color: #88c;
+      transform: translateY(4px);
+      border-bottom-color: #88c;
+    }
+    ```
+
+    there's **NO need** for vendor prefixes  
+    (e.g. `-webkit-transition`)
+
+    ---
+
+    ## CSS TRANSITION 4
+
+    ```css
+    .myclass {
+      width: 100px;
+      height: 100px;
+      background: green;
+      transition: width 2s;
+    }
+    .myclass:hover {
+      width: 600px;
+    }					
+    ```
+
+    ---
+
+    ## CSS TRANSITION 5
+
+    ```css
+    .myclasswait {
+      width: 100px;
+      height: 100px;
+      background: red;
+      transition: all 2s;
+      transition-delay: 2s;
+    }
+    .myclasswait:hover {
+      background: blue;
+      width: 600px;
+    }					
+    ```
+
+    ---
+
+    <style>
+    .slides {
+      --redish: #fc5f8e;
+      --blueish: #5fabfc;
+      --greenish: #9f9;
+    }
+    .svg-anim {
+      width: 600px;
+      height: 100px;
+      border: 1px solid #ccc;
+    }
+    .svg-anim circle {
+      fill: #5fabfc;
+      stroke: white;
+      animation: move 3s infinite ease-in-out alternate;
+      /* animation: move 3s infinite cubic-bezier(.16,-0.2,.82,1.2) alternate; */
+    }
+    @keyframes move {
+      from {
+        cx: 18;
+        cy: 18;
+        fill: #fc5f8e;
+        stroke: #9f9;
+      }
+      to {
+        cx:584;
+        cy: 84;
+        fill: #9f9;
+        stroke: #fc5f8e;
+      }
+    }
+    .myclass {
+      background: var(--greenish);
+      height: 100px;
+      width: 100px;
+      transition: width 2s;
+    }
+    .myclass:hover {
+      width: 600px;
+    }
+    .myclasswait {
+      width: 100px;
+      height: 100px;
+      background: var(--redish);
+      transition: all 2s ease-in-out;
+      transition-delay: 2s;
+    }
+    .myclasswait:hover {
+      background: var(--blueish);
+      width: 600px;
+    }
+    .reveal .mymenu {
+      margin-bottom: 1em;
+      text-align: center;
+      border-bottom: 4px solid #ccc;
+      background: #88c;
+      width: 12em;
+      color: #ccc;
+      line-height: 2em;
+      transition: all .6s ease-in-out;
+    }
+    .mymenu:hover {
+      background: #ccf;
+      color: #88c;
+      transform: translateY(4px);
+      border-bottom: 4px solid #88c;
+    }
+    </style>
+
+    <h1>CSS <strong>TRANSITION</strong> <strong>6</strong></h1>
+
+    <div class="mymenu">menu item</div>
+
+    <div class="myclass"> </div>
+    <div class="myclasswait"> </div>
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## CSS ANIMATION 1
+
+    - Create and **name** a `@keyframes` block for the animations
+    - Add an `animation` rule with the **name** of your `@keyframes` to the element
+    - `@keyframes` can run `from` and `to` a set of styles  
+      or be **timed** (e.g. at 0%, 25%, 50%, 75%, 100%)
+    - You can also trigger the animation on e.g.
+    `:hover`, `:checked`, `:focus`, etc.
+
+    See [Animation](https://css-tricks.com/almanac/properties/a/animation/) (Chris Coyier, 2017)
+
+    ---
+
+    ## CSS ANIMATION 2
+    <!-- .slide: class="left-align crammed malltext" -->
+
+    THE **ELEMENT**
+
+    ```css
+    .heart {
+      width: 100%;
+      height: 90px;
+      margin: 30px;
+      transform: scale(1.25);
+      animation: pulsate 1.8s alternate infinite ease-in-out;
+    }
+    .heart:before,
+    .heart:after { 
+      /* create heart shape here */
+    }
+    ```
+
+    animation:  
+    **name**, **duration**, **direction**, **count**, **timing function**
+
+    ---
+
+    ## CSS ANIMATION 3
+    <!-- .slide: class="left-align" -->
+
+    THE NAMED **KEYFRAMES**
+
+    ```css
+    @keyframes pulsate {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    ```
+
+    Adapted from [This Pen](https://codepen.io/Zeaklous/pen/rmDdx)
+
+    ---
+
+    <style>
+    .reveal .heart-container {
+      position: relative;
+      margin-left: 40%;
+    }
+    .reveal .heart {
+      width: 100%;
+      height: 90px;
+      margin: 30px;
+      transform: scale(1.25);
+      animation: 1.8s pulsate alternate infinite ease-in-out;
+    }
+    .heart:before,
+    .heart:after { 
+      position: absolute;
+      content: "";
+      left: 50px;
+      top: 0;
+      width: 50px;
+      height: 80px;
+      background: red;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+    .heart:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin :100% 100%;
+    }
+
+    @keyframes pulsate {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    </style>
+
+    <h2>CSS ANIMATION 4<h2>
+
+    <div class="heart-container">
+      <div class='heart'></div>
+    </div>
+
+    </textarea>
+  </section>
+</section>
 
 
 
+<section>
+  <section data-markdown>
+    <textarea data-template>
 
+    ## CSS VARIABLES 1
+
+    Variables are **scoped** to the **selector** in which they are defined, and inherited by its **descendants**  
+    
+    so often the `:root` pseudo-element is used in examples as a “global” selector (**SVGs** need the variable in `:root` because the **SVG DOM is separate**)…
+
+    ---
+
+    ## CSS VARIABLES 2
+
+
+    ```css
+    :root {
+      --darkGreen: #051;
+      --myYellow: #fd3;
+    }
+
+    main {
+      color: var(--darkGreen);
+      background: var(--myYellow);
+    }
+    .my-class {
+      border-color: var(--myYellow);
+    }
+    ```
+
+    ---
+
+    ## CSS VARIABLES 3
+
+    …however, **any selector** (element, class, id) can be used to set **CSS Custom Properties** (not just `:root`) - you can then access them in **all child elements** of that selector
+
+    So CSS variables in `html` or `body` also mean that **any element** in your CSS file has access to them…
+
+    ```css
+    body {
+      --darkGreen: #051;
+    }
+
+    .my-class {
+      color: var(--darkGreen);
+    }
+    ```
+
+    ---
+
+    ## CSS VARIABLES 4
+
+    Elements **outside** the variable **selector** which contains the variables **cannot access them**:
+
+    ```html
+    <main>main content</main>
+    <footer>footer content</footer>
+    ```
+
+    ```css
+    main {
+      --darkGreen: #051;
+    }
+
+    footer {
+      color: var(--darkGreen);
+      /* OOPS: cannot see the variable in “main” */
+    }
+    ```
+
+    ---
+
+    ## CSS VARIABLES 5
+
+    **store** an **attribute value** once, then **use elsewhere**:
+
+    ```css
+    /* set the variables in a root element */
+    html {
+      --myWidth: calc(100vw - 4em - 28px);
+      --myBorder: 4px solid var(--myYellow);
+      --codeFont: "Courier New", monospace;
+    }
+
+    /* use the variables anywhere */
+    section {
+      border: var(--myBorder);
+    }
+    figure {
+      width: var(--myWidth);
+    }
+    code {
+      font-family: var(--codeFont);
+    }
+    ```
+
+    ---
+
+    ## CSS VARIABLES 6
+
+    For responsive design, you can **reset custom properties inside `@media` queries**. For example, you could **expand the margin** around major layout elements for **wider screen widths**:
+
+    ```css
+    :root {
+      --gutter: 4px;
+    }
+
+    section {
+      margin: var(--gutter);
+    }
+
+    @media (min-width: 600px) {
+      :root {
+        --gutter: 16px;
+      }
+      /* this change is only activated above 600px */
+    }
+    ```
+
+    </textarea>
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## RESPONSIVE DESIGN: 1
+
+    CSS **media queries** can respond to many factors, e.g.:
+
+    | `@media` | for: |
+    |:--|:--|
+    | `print` |	printers |
+    | `screen` | computer screens, tablets, phones… |
+    | `speech` | text-to-speech screen readers |
+
+    but there's also…
+
+    `width`/`height`, `orientation`, `hover`, `light-level`… and more... see [Using media queries (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+
+    ---
+
+    ## RESPONSIVE DESIGN: 2
+
+    `@media` queries in CSS **apply styles conditionally**
+
+    For example, when **printing** you can add styles that **remove** navigation, dark backgrounds, ads…
+
+    ```css
+    @media print {
+      body {
+        background: #fff; /* white */
+      }
+      nav,
+      footer,
+      .promo {
+        display: none;
+      }
+    }
+    ```
+
+    ---
+
+    ## RESPONSIVE DESIGN: 3
+
+    or more specific filtering
+
+    ```css
+    @media screen and (orientation: landscape) {
+      nav {
+        display: flex;
+      }
+    }
+
+    @media speech {
+      .adverts,
+      .banner {
+        display: none;
+      }
+    }
+    ```
+
+    ---
+
+    ## RESPONSIVE DESIGN: 4
+
+    **However** get started with just  
+    `screen` and `min-width` e.g.
+
+    ```css
+    @media screen and (min-width: 600px) {
+      body {
+        background-color: lightblue;
+      }
+    }
+    ```
+
+    Some [examples of RWD (mediaqueri.es)](https://mediaqueri.es/)
+
+    ---
+
+    ## RESPONSIVE DESIGN: 5
+
+    Use **[NATURAL BREAKPOINTS](https://stackoverflow.com/a/20350990/123033)**!
+
+    - Design **mobile-first**, then **increase the screen width** by resizing the browser window and/or using the [Chrome inspector mobile icon](https://developers.google.com/web/tools/chrome-devtools/device-mode/).
+    - Add `min-width` **breakpoints** wherever the **design becomes “broken”** or fails when the viewport width increases—
+    - all content should **look good at any viewport** width/height
+
+    **Avoid** large **fixed width** elements.
+
+    See the [responsive starter code](https://github.com/CTEC3905/starter-code)…
+
+    ---
+
+    ## RESPONSIVE DESIGN: 6
+
+    So mobiles just don't reduce the website down to phone screen width, the HTML `head` section needs special `meta` tag `viewport` and `content` attributes:
+
+    ```html
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>P-Number</title>
+      <link rel="stylesheet" href="css/styles.css">
+    </head>
+    ```
+
+    ---
+
+    ## RESPONSIVE DESIGN: 7
+
+    ```css
+    /* all general/mobile styles first: */
+    body { background: rgb(220,230,210); }
+    a:link, a:visited { color: #003; }
+    /* etc... */
+
+    /* next, the first breakpoint above mobile: */
+    @media screen and (min-width: 600px) {
+      a:hover { color: #225; }
+      /* override mobile styles here...
+      and set styles for larger widths */
+    }
+
+    @media screen and (min-width: 1000px) {
+    /* then override previous styles for screens > 999px */
+    }
+    ```
+
+    ---
+
+    ## RESPONSIVE DESIGN: 8
+
+    - **Percentages** work well for setting basic element widths, but use `box-sizing: border-box` to ensure padding and borders **remain *inside* the element’s width**
+    - For **individual container elements** (e.g. a `main` tag) you can use `max-width` to keep them from **getting too wide**
+
+    > **45** to **80** characters (per line) is the ideal **line length** for text on websites  
+    —[The Readability Formula: Making Your Website Easy-to-Read](https://kickpoint.ca/the-readability-formula-making-your-website-easy-to-read/)
+
+    ---
+
+    [CanIUse](https://caniuse.com/) & [BrowserStack](https://www.browserstack.com/) vs.  
+
+    ![NOT LIKE THIS!! How Responsive Web Design used to be](https://raw.githubusercontent.com/front-end-materials/images/master/rwd/testing-devices.jpg)
+
+    </textarea>
+  </section>
+</section>
+
+
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## INFORMATION ARCHITECTURE (IA): 1
+      
+    > If you’ve ever tried to use something and thought, *“where am I supposed to go next?”* or *“this doesn’t make any sense,”* you are encountering an issue with an information architecture.  
+
+    ---
+
+    ## IA: 2
+
+    ### What is **Information Architecture**?
+
+    - The **art and science** of *structuring and classifying* websites/intranets/apps to help people *find and manage information*
+    - A **discipline** and community of practice bringing principles of *design and architecture* to online development
+
+    Entire university courses cover Information Architecture—[search for "library science and information architecture"](https://www.google.co.uk/search?q=library+science+and+information+architecture)
+
+    ---
+
+    <h2>IA: 3 - How did IA begin?</h2>
+
+    <img style="float:left;" src="https://raw.githubusercontent.com/front-end-materials/images/master/ia/information-architecture-book.jpg" alt="Information Architecture book cover">
+
+    <p style="width: 58%; float: right; margin-top: .2em;">In 1998 Peter Morville and co-author Louis Rosenfeld wrote <a href="https://wordery.com/information-architecture-louis-rosenfeld-9781491911686?currency=GBP" title="Cheapest copy of 'Information Architecture' we could find">Information Architecture for the World Wide Web</a>
+    <br>
+    (4th edition 2015)
+    <br>
+    <br>
+    Known as <em>The Polar Bear Book</em> it is considered to be <strong>the</strong> essential text on the subject.</p>
+
+    ---
+
+    ## IA: 4
+
+    Information Architecture has origins in **library science**
+
+    - The development of “**knowledge-organization** systems”
+    - Study of how to **categorize**, **catalogue**, **locate** resources
+
+    So it's a kind of cognitive and visual **data structure**
+
+    ---
+
+    ## IA: 4a: **Cognitive Psychology**
+
+    - **Cognitive load**: how much information we can process at any time—avoiding information overload ([rule of 7](http://neuromavin.com/cognitive-limits-social-networks-and-dunbars-number/)).
+    - **Mental models**: the assumptions users have—information is easier to discover in familiar places.
+    - **Decision making**: the cognitive process of making a choice or selecting an option—IA helps make decisions by providing contextual information at key points.
+
+    ---
+
+    <style>
+    .ia-diagram {
+      position: relative;
+      box-sizing: border-box;
+      top: .6em;
+      padding: 8px;
+      width: 360px;
+      height: 350px;
+      background: #ccc;
+      color: #666;
+      float: left;
+    }
+    .ia-diagram div {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+        text-align: center;
+      box-sizing: border-box;
+      border-radius: 50%;
+    }
+    </style>
+
+    <h2>IA: 5</h2>
+      
+    <div class="ia-diagram">
+    <div style="left: 76px; top: 8px; background: rgba(256,100,100,0.5); line-height: 170px;">Users</div>
+    <div style="bottom: 8px; left: 8px; background: rgba(100,256,100,0.5); line-height: 240px; transform: rotate(32deg);">Content</div>
+    <div style="bottom: 8px; right: 8px; background: rgba(100,100,256,0.5); line-height: 240px; transform: rotate(-32deg);">Context</div>
+    <strong style="position: absolute; text-align: center; left: 43%; top: 44%; font-size: 1.5em; color: #444; text-shadow: 0 0 4px #fff">IA</strong>
+    </div>
+
+    <ul style="width: 56%; margin-left: 10px; margin-top: -0.28em; float: right;">
+    <li><strong>Users</strong>: who they are, what are their information-seeking behaviours and needs</li>
+    <li><strong>Content</strong>: volume, format, metadata, structure, labels (e.g. menus)</li>
+    <li><strong>Context</strong>: business model, aim of website, cultural background, constraints</li>
+    </ul>
+
+    ---
+
+    ## IA: 6
+
+    **the information backbone of a website**
+
+    - **Content inventory/audit**  
+    locate and identify and check site content
+    - **Information grouping**  
+    connect content with user-centered relationships
+    - **Taxonomy development**  
+    a controlled vocabulary throughout  
+
+    Jennifer Cardello: [The Difference Between IA and Navigation](https://www.nngroup.com/articles/ia-vs-navigation/)  
+
+    ---
+
+    ## IA: 7
+
+    ### **What is Architecture?**
+
+    <small>Condensed from Cal Henderson, [Building Scalable Web Sites](http://shop.oreilly.com/product/9780596102357.do) (2006)</small>
+
+    **If buildings were like software**, the architect would be involved in the actual building process, from … foundations … to … fixtures. …starting with a couple of rooms and basic amenities, **people would… start living there before the building was complete**. When the building work was about to finish …more people would turn up and start living there, too.
+
+    ---
+
+    ## Build around users
+
+    …new residents need **new features**. The architect would design these, augmenting the original design. But the **current residents** would *continue using the house* while it was extended, all the time complaining about the building work.
+
+    In fact… **more people would move in** while extensions were being built. When the modifications were complete, the newcomers would *request more changes*.
+
+    ---
+
+    ## Plan from the start
+
+    The key… is **planning for all this from the start**. If the architect started out by building a huge, complex house, it would be *overkill*. By the time it was ready, the residents **would have gone elsewhere** to live in a smaller house built in a fraction of the time.
+
+    If extending our house (website) takes too long, **people might move elsewhere**. We need start at the right scale and design things to be *extended as easily as possible*.
+
+    ---
+
+    ## Minimize effort
+
+    We're *not going to get anything right first time*. In the [scaling](https://www.nngroup.com/articles/scaling-user-interfaces/ "Scaling User Interfaces: An Information-Processing Approach to Multi-Device Design") of a typical application, **every aspect and feature** is probably going to be **revisited and [refactored](http://www.refactoring.com/ "a change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its observable behavior")**.
+
+    That's fine—the task of an application architect is to **minimize the time it takes to [refactor](https://sourcemaking.com/refactoring "A big site about refactoring") each component**, through *careful initial and ongoing design*.
+
+
+    </textarea>
+  </section>
+</section>
 
 
 
@@ -157,6 +841,19 @@
 
 <section data-markdown>
   ## References
+
+  - [Using CSS custom properties/variables (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
+  - [CSS Variables: Why Should You Care?](https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care)
+  - [Responsive Web Design](http://alistapart.com/article/responsive-web-design) (The first, Ethan Marcotte, 2010)
+  - [Responsive animations](http://www.fastcodesign.com/3038367/9-gifs-that-explain-responsive-design-brilliantly) (less reading more looking)
+  - [HTML Responsive Web Design](http://www.w3schools.com/html/html_responsive.asp) (W3 Schools)
+  - [Am I Responsive](http://ami.responsivedesign.is/?url=https%3A%2F%2Fswitchoff.nus.org.uk#) (with example site)
+  - [This Is Responsive](http://bradfrost.github.io/this-is-responsive/) (overload: patterns and resources)
+  - [Luke Wroblewski, 'Mobile First’](http://abookapart.com/products/mobile-first)  
+  - [Ethan Marcotte, 'Responsive Web Design’](http://abookapart.com/products/responsive-web-design)
+  - [The Magical Number Seven… George A. Miller (1956)](http://psychclassics.yorku.ca/Miller/ "…Plus or Minus Two: Some Limits on our Capacity for Processing Information. A classic text.")
+  - [Complete Beginners Guide to Information Architecture](http://www.uxbooth.com/articles/complete-beginners-guide-to-information-architecture/ "A summary of the above findings")
+
 
 </section>
 

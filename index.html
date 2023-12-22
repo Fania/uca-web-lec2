@@ -798,6 +798,277 @@
 </section>
 
 
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## DESIGN: 01
+
+    Four basic principles:
+
+    - **P**roximity
+    - **A**lignment
+    - **R**epetition
+    - **C**ontrast
+
+    (The reverse of ‘____’)
+
+    ---
+
+    ## DESIGN: 02
+    <!-- .slide: class="smalltext" -->
+
+    **PROXIMITY** sets up *visual cues* that group similar items, suggesting how to ‘read’ content.
+
+    - **Group complex content** for legibility
+    - Display **related items** together
+    - Use **common styles** to connect similar items
+
+    [Guardian website](https://www.theguardian.com/uk): “most viewed” news is **grouped** together, and there‘s a **common menu style** with varying **section colours**
+
+    [BBC iPlayer website](http://www.bbc.co.uk/iplayer): **proximity** and **style** group related items
+
+    ---
+
+    ![a screenshot of the Guardian website](imgs/guardian.jpeg)
+
+    ---
+
+    <!-- .slide: class="split2" -->
+    ![a screenshot of the BBC iPlayer website](imgs/iplayer2018.png)
+    ![a screenshot of the BBC iPlayer website](imgs/iplayer2023.jpeg)
+
+    ---
+    <!-- 
+    <section title="a screenshot of the Guardian website" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/parc/guardian-230oct2018.png" data-background-size="80%"><div>&nbsp;</div></section>
+
+    <section title="a screenshot of the BBC iPlayer website" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/parc/bbc-iplayer-23oct2018.png" data-background-size="80%"><div>&nbsp;</div></section>					 -->
+
+    ## DESIGN: 03
+    <!-- .slide: class="smalltext" -->
+
+    **ALIGNMENT** makes page elements seem **part of a whole**, creating a **holistic feel** to the various pieces of information.
+
+    - Everything should be **placed thoughtfully** in the layout
+    - Every item is **connected visually** with other page elements
+
+    A strict use of **alignment** on a former version of the Oslo-based design agency Heydays website gives a pleasing sense of **coherence and simplicity**.
+
+    ---
+
+    ![a screenshot of the Heydays website](imgs/heydays.jpg)  
+    [the Heydays website](https://heydays.no/)
+
+    <!-- <section title="An obvious example of a grid-based website" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/parc/heydays.jpg" data-background-size="800px"><div>&nbsp;</div></section> -->
+
+    ---
+
+    ## DESIGN: 03a
+
+    **ALIGNMENT**: **grids** are the **primary method** for achieving **alignment**.
+
+    - **The core text** on the history and use of grids in design is: Khoi Vinh and Mark Boulton (2007) [Grids Are Good](http://www.slideshare.net/huer1278ft/grids-are-good-right)
+    - Also see Vitaly Friedman (2007) [Designing With Grid-Based Approach](https://www.smashingmagazine.com/2007/04/designing-with-grid-based-approach/), Smashing Magazine
+
+    ---
+
+    ![Wireframe: stage 1](imgs/wireframe-01.png)
+
+    ---
+
+    ![Wireframe: stage 2](imgs/wireframe-02.png)
+
+    ---
+
+    ![Wireframe: stage 3](imgs/wireframe-03.png)
+
+    ---
+
+    ![Wireframe: stage 4](imgs/wireframe-04.png)
+
+    ---
+
+    ![Wireframe: finished comparison](imgs/wireframe-finished.png)
+
+    ---
+
+    <!-- <section title="Wireframe: stage 1" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/wireframes/wireframe-01.png" data-background-size="70%"><div>&nbsp;</div></section>
+
+    <section title="Wireframe: stage 2" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/wireframes/wireframe-02.png" data-background-size="70%"><div>&nbsp;</div></section>
+
+    <section title="Wireframe: stage 3" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/wireframes/wireframe-03.png" data-background-size="70%"><div>&nbsp;</div></section>
+
+    <section title="Wireframe: stage 4" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/wireframes/wireframe-04.png" data-background-size="70%"><div>&nbsp;</div></section>
+
+    <section title="Wireframe: finished comparison" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/wireframes/wireframe-finished.png" data-background-size="86%"><div>&nbsp;</div></section> -->
+
+    ## DESIGN: 04
+
+    **REPETITION** provides visual and cognitive **consistency** across common design elements
+
+    - Repeat **design themes** throughout the interface
+    - Consistent sizing and proportions strengthen **style**
+
+    Use: global **style rules** at the **top** of your CSS **before `@media` query breakpoints** to *style elements consistently* e.g. **colours**, image **widths** (not height), matching **heading** styles…
+
+    ---
+
+    ![An example of repetition in heading style](imgs/karl-anders.png)
+
+    ---
+
+    ![Repetition used to display columns of images and titles](imgs/creative-depart.jpg)
+
+    <!-- <section title="An example of repetition in heading style" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/parc/karl-anders.png" data-background-size="50%"><div>&nbsp;</div></section> -->
+
+    <!-- <section title="Repetition used to display columns of images and titles" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/parc/creative-depart.jpg" data-background-size="60%"><div>&nbsp;</div></section> -->
+
+    ---
+
+    ## DESIGN: 05
+
+    **CONTRAST**
+
+    - Make **distinctly different** items *look* different
+    - Contrast makes content appear **visually inviting**
+
+    There are many ways to create contrast. For example:  
+    **colour, fonts, rules, column widths**, etc.
+
+    - Javascript plugin site [unheap.com](http://www.unheap.com/) uses **bold colours**
+
+
+    <!-- <section title="A striking use of multiple kinds of contrast" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/parc/unheap.png" data-background-size="900px"><div>&nbsp;</div></section>					 -->
+
+    <!-- <section title="A stylish minimal use of contrast on hover" data-background-image="https://raw.githubusercontent.com/front-end-materials/images/master/parc/touch-website.png" data-background-size="900px"><div>&nbsp;</div></section>					 -->
+
+    <!-- END DESIGN PRINCIPLES -->
+
+    </textarea>
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## WIREFRAMES 01
+    <!-- .slide: class="smalltext" -->
+
+    ### **MOBILE FIRST** DESIGN
+
+    - assemble your **content** in a separate folder
+    - store written content in **plain text files**
+    - keep **unsized images** outside your web folder
+    - design your **mobile screens** first
+    - **think visually** before diving into code
+    - **map your content** onto your wireframes
+    - let your content form the **menu structure**
+    - how will **users navigate** through your site?
+
+    ---
+
+    <!-- .slide: class="big-pic small-head crammed" -->
+    From simple **hand-drawn sketches**…
+
+    ![sketches of mobile wireframes](imgs/sketched-wireframes-01.png)
+
+    ---
+
+    <!-- .slide: class="big-pic small-head crammed" -->
+    ![sketches of mobile wireframes](imgs/sketched-wireframes-02.jpg)
+
+    ---
+
+    <!-- .slide: class="big-pic small-head crammed" -->
+    To complete **visual mock-ups**…
+
+    ![digital mobile wireframes](imgs/mobile-wireframe-userflow-01.jpg)
+
+    ---
+
+    <!-- .slide: class="big-pic small-head crammed" -->
+    …for **complex interfaces** in fine detail
+
+    ![digital mobile wireframes](imgs/mobile-wireframe-userflow-02.jpg)
+
+    ---
+
+    ## WIREFRAMES 06
+    <!-- .slide: class="smalltext" -->
+
+    **DO NOT** be tempted by any "website template" adverts!! Templates (and "build a responsive website" tutorials) may look fine, but **will not produce a good project**. Your **own code** is more impressive :-)
+
+
+    </textarea>
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## Accessibility 1
+    <!-- .slide: class="crammed smalltext" -->
+
+    > Whatever your needs or preferences, there’s almost certainly a way to access the web. **Theoretically**.
+
+    > In reality, **the web is a mess**… accessibility options tend to be forgotten or stripped away, …though accessible websites and apps can… still be beautiful, innovative… user-friendly.
+    >
+    > …**This is a human rights issue**. Disabled people *need* these options in order to access the web.”
+
+    Mischa Andrews: [The inaccessible web](https://uxdesign.cc/the-inaccessible-web-how-we-got-into-this-mess-7cd3460b8e32)  
+
+    ---
+
+    ## Accessibility 2
+
+    > “The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect”
+
+    Tim Berners-Lee (1997)  
+    [Web Accessibility Initiative announcement](https://www.w3.org/Press/IPO-announce)
+
+    ---
+
+    ## Accessibility 3
+    <!-- .slide: class="crammed smalltext" -->
+
+    **Accessibility** has been **built into the web from the start**  
+    W3C (2005) [Introduction to Web Accessibility](https://www.w3.org/WAI/intro/accessibility.php)
+
+    > “the **duty to make reasonable adjustments** requires providers to **ensure disabled people can access services** …and… **anticipate the needs** of potential disabled customers…”  
+    —adapted from [Disabled access to websites under UK law](http://www.out-law.com/page-330)
+
+    The **Disability Equality Act (2010)** is law—you could be [sued for discrimination](http://www.seqlegal.com/blog/website-accessibility-and-equality-act-2010) if your website fails to meet [accessibility standards](https://www.abilitynet.org.uk/expert-resources/web-accessibility-resources)  
+    See [public sector international accessibility requirements (2018)](https://www.gov.uk/guidance/accessibility-requirements-for-public-sector-websites-and-apps#who-has-to-meet-the-2018-accessibility-regulations)
+
+    ---
+
+    ## Accessibility 4
+
+    How you can address **web access**:
+
+    - Code accessibly, from `alt` image attributes to **semantic structure**
+    - needs **incorporating from the start** of a project
+    - Good **IA and navigation** help accessibility
+    - HTML5 **semantic elements** are crucial
+    - **valid HTML5** code is important
+    - Use **[form field types](https://www.w3schools.com/html/html_form_input_types.asp)** and the `label` tag
+
+    ---
+
+    ## Accessibility 5
+
+    [WebAim](https://webaim.org)
+
+    </textarea>
+  </section>
+</section>
+
+
+
 
 <section>
   <section data-markdown>
@@ -853,7 +1124,18 @@
   - [Ethan Marcotte, 'Responsive Web Design’](http://abookapart.com/products/responsive-web-design)
   - [The Magical Number Seven… George A. Miller (1956)](http://psychclassics.yorku.ca/Miller/ "…Plus or Minus Two: Some Limits on our Capacity for Processing Information. A classic text.")
   - [Complete Beginners Guide to Information Architecture](http://www.uxbooth.com/articles/complete-beginners-guide-to-information-architecture/ "A summary of the above findings")
-
+  - [User Experience Design – The importance of wireframe](https://cs2024.wordpress.com/2015/10/02/user-experience-design-the-importance-of-wireframe/)  
+  —Esmund Koh, 2015
+  - [HealthConnect – Responsive Website Design (case study)](https://britzerbo.wordpress.com/2013/06/10/healthconnect-responsive-website-design/)  
+  —Brit Zerbo, 2013
+  - [15 Beautiful Examples of Mobile App Wireframe Sketching](https://1stwebdesigner.com/mobile-app-wireframe-sketching/)  
+  —Ben Bate, 2017
+  - [WebAim](http://webaim.org/intro/)—**see this site first!**
+  - [A11Y Accessibility project](https://a11yproject.com/#Quick-tests)
+  - [Aria use in HTML5](http://html5doctor.com/on-html-belts-and-aria-braces/)
+  - [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+  - [Notes on Using ARIA in HTML](https://www.w3.org/TR/aria-in-html/)—see the [1st to 5th](https://www.w3.org/TR/using-aria/#rule1) rules!
+  - [How to Use ARIA Effectively with HTML5](https://www.sitepoint.com/how-to-use-aria-effectively-with-html5/)
 
 </section>
 

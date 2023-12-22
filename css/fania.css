@@ -6,6 +6,7 @@
   --gray: #687085;
   --red: #cea290;
   --orange: #f4d6a2;
+  --smallFontSize: 10px;
   /* --lightgray: #b9b1c4; */
   /* --black: #11274b; */
 }
@@ -24,6 +25,9 @@
   align-items: center;
   flex-direction: row;
   gap: 20px;
+}
+.reveal .slides>section.present.smalltext {
+  font-size: var(--smallFontSize);
 }
 
 .reveal h2 {

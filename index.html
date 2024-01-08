@@ -413,24 +413,6 @@
 
     ## CSS VARIABLES 3
 
-    …however, **any selector** (element, class, id) can be used to set **CSS Custom Properties** (not just `:root`) - you can then access them in **all child elements** of that selector
-
-    So CSS variables in `html` or `body` also mean that **any element** in your CSS file has access to them…
-
-    ```css
-    body {
-      --darkGreen: #051;
-    }
-
-    .my-class {
-      color: var(--darkGreen);
-    }
-    ```
-
-    ---
-
-    ## CSS VARIABLES 4
-
     Elements **outside** the variable **selector** which contains the variables **cannot access them**:
 
     ```html
@@ -451,19 +433,16 @@
 
     ---
 
-    ## CSS VARIABLES 5
+    ## CSS VARIABLES 4
 
     **store** an **attribute value** once, then **use elsewhere**:
 
     ```css
-    /* set the variables in a root element */
-    html {
+    :root {
       --myWidth: calc(100vw - 4em - 28px);
       --myBorder: 4px solid var(--myYellow);
       --codeFont: "Courier New", monospace;
     }
-
-    /* use the variables anywhere */
     section {
       border: var(--myBorder);
     }
@@ -477,7 +456,7 @@
 
     ---
 
-    ## CSS VARIABLES 6
+    ## CSS VARIABLES 5
 
     For responsive design, you can **reset custom properties inside `@media` queries**. For example, you could **expand the margin** around major layout elements for **wider screen widths**:
 
@@ -485,16 +464,13 @@
     :root {
       --gutter: 4px;
     }
-
     section {
       margin: var(--gutter);
     }
-
     @media (min-width: 600px) {
       :root {
         --gutter: 16px;
       }
-      /* this change is only activated above 600px */
     }
     ```
 
@@ -617,15 +593,12 @@
     /* all general/mobile styles first: */
     body { background: rgb(220,230,210); }
     a:link, a:visited { color: #003; }
-    /* etc... */
-
     /* next, the first breakpoint above mobile: */
     @media screen and (min-width: 600px) {
       a:hover { color: #225; }
       /* override mobile styles here...
       and set styles for larger widths */
     }
-
     @media screen and (min-width: 1000px) {
     /* then override previous styles for screens > 999px */
     }
@@ -635,11 +608,11 @@
 
     ## RESPONSIVE DESIGN: 8
 
-    - **Percentages** work well for setting basic element widths, but use `box-sizing: border-box` to ensure padding and borders **remain *inside* the element’s width**
+    - Use **Percentages** to set basic element widths, use `box-sizing: border-box` to ensure padding and borders **remain *inside* the element’s width**
     - For **individual container elements** (e.g. a `main` tag) you can use `max-width` to keep them from **getting too wide**
 
     > **45** to **80** characters (per line) is the ideal **line length** for text on websites  
-    —[The Readability Formula: Making Your Website Easy-to-Read](https://kickpoint.ca/the-readability-formula-making-your-website-easy-to-read/)
+    —[The Readability Formula](https://kickpoint.ca/the-readability-formula-making-your-website-easy-to-read/)
 
     ---
 
